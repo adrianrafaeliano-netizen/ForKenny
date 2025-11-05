@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan untuk Kenny</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffd1dc;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        
+        p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-mau {
+            background-color: #ff4081;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+        }
+        
+        .btn-mau:hover {
+            background-color: #e91e63;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 64, 129, 0.6);
+        }
+        
+        .btn-gak {
+            background-color: #4a4a4a;
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 74, 74, 0.4);
+        }
+        
+        .btn-gak:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 74, 74, 0.6);
+        }
+        
+        .btn-apa {
+            background-color: #4CAF50;
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-apa:hover {
+            background-color: #388E3C;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+        }
+        
+        .heart {
+            color: #ff4081;
+            font-size: 2rem;
+            margin: 0 5px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Pembuka -->
+    <div id="opening-page" class="container">
+        <h1>Dari Rafael untuk Kenny</h1>
+        <h2>Ada yang mau aku tanyain nih..</h2>
+        <div class="button-container">
+            <a href="#" class="btn btn-apa" onclick="showPage('question-page')">Apa?</a>
+        </div>
+    </div>
+    
+    <!-- Halaman Pertanyaan Utama -->
+    <div id="question-page" class="container hidden">
+        <h1>Pertanyaan Spesial</h1>
+        <p>Do you want to be my girlfriend?? <span class="heart"></span></p>
+        <div class="button-container">
+            <a href="#terimakasih" class="btn btn-mau" onclick="showPage('terimakasih-page')">Mau</a>
+            <a href="#teman" class="btn btn-gak" onclick="showPage('teman-page')">Gak</a>
+        </div>
+    </div>
+    
+    <!-- Halaman Terima Kasih -->
+    <div id="terimakasih-page" class="container hidden">
+        <h1>Thank you, Kenny<span class="heart">❤️</span></h1>
+        <p>Aku janji akan selalu membuatmu tersenyum, menghargaimu setiap hari, dan menjadi seseorang yang bisa kamu andalkan.</p>
+        <p>Kamu adalah anugerah terindah yang pernah kumiliki.</p>
+        <p>(Screenshot halaman ini dan kirim ke aku.)</p>
+        <div class="button-container">
+            <a href="#" class="btn btn-mau" onclick="showPage('opening-page')">Kembali ke Awal</a>
+        </div>
+    </div>
+    
+    <!-- Halaman Tetap Teman -->
+    <div id="teman-page" class="container hidden">
+        <h1>Oke, aku hargai keputusanmu</h1>
+        <p>Tapi kita jangan jadi asing ya, jangan musuhan dan saling benci.</p>
+        <p>Aku berharap kita tetap berteman seperti biasa.</p>
+       <p>Terimakasih, aku harap kamu bahagia selalu.</p>
+        <div class="button-container">
+            <a href="#" class="btn btn-gak" onclick="showPage('opening-page')">Kembali ke Awal</a>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Sembunyikan semua halaman
+            document.getElementById('opening-page').classList.add('hidden');
+            document.getElementById('question-page').classList.add('hidden');
+            document.getElementById('terimakasih-page').classList.add('hidden');
+            document.getElementById('teman-page').classList.add('hidden');
+            
+            // Tampilkan halaman yang dipilih
+            document.getElementById(pageId).classList.remove('hidden');
+            
+            return false; // Mencegah link mengarah ke #
+        }
+    </script>
+</body>
+</html>
